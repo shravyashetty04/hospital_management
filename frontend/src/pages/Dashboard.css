@@ -1,0 +1,181 @@
+/* Dashboard.css */
+
+.db-portal-label {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.2rem;
+}
+
+.db-role-badge {
+  background: rgba(99,102,241,0.15);
+  color: var(--primary);
+  border: 1px solid rgba(99,102,241,0.3);
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Quick action banner */
+.db-quick-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(6,182,212,0.1));
+  border: 1px solid rgba(99,102,241,0.25);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.db-quick-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
+.db-quick-sub   { font-size: 0.875rem; color: var(--text-secondary); }
+.db-avail-hint  { font-size: 0.78rem; color: var(--accent); margin: -0.5rem 0 0.75rem; }
+
+/* Section header */
+.db-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.db-section-title { font-size: 1rem; font-weight: 700; }
+.db-count { font-size: 0.78rem; color: var(--text-secondary); }
+
+/* Filter bar */
+.db-filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.db-filter-btn {
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: var(--bg-700);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+.db-filter-btn:hover { border-color: var(--primary); color: var(--text-primary); }
+.db-filter-btn--active {
+  background: rgba(99,102,241,0.15);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Empty state */
+.db-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2.5rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-align: center;
+}
+.db-empty span { font-size: 2.5rem; }
+
+.db-empty-full {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 50vh;
+  color: var(--text-secondary);
+  text-align: center;
+}
+.db-empty-full span { font-size: 3rem; }
+.db-empty-full h3   { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); }
+
+/* Table helpers */
+.db-name      { font-weight: 500; color: var(--text-primary); }
+.db-secondary { font-size: 0.8rem; color: var(--text-secondary); }
+.db-actions   { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+/* Stat card clickable */
+.stat-card--click { cursor: pointer; }
+.stat-card--click:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px var(--primary-glow);
+}
+
+/* Admin split grid */
+.db-grid-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+@media (max-width: 900px) { .db-grid-split { grid-template-columns: 1fr; } }
+
+/* Doctor list */
+.db-doctor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.db-doctor-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-700);
+  border: 1px solid var(--border);
+  transition: border-color var(--transition);
+}
+.db-doctor-row:hover { border-color: rgba(255,255,255,0.12); }
+.db-doctor-avatar {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: #fff; font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.db-doctor-info { flex: 1; min-width: 0; }
+
+/* Recent appointments list */
+.db-appt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.db-appt-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-700);
+  border: 1px solid var(--border);
+}
+.db-appt-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(99,102,241,0.12);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  min-width: 44px;
+  flex-shrink: 0;
+}
+.db-appt-day { font-size: 1.1rem; font-weight: 700; line-height: 1; }
+.db-appt-mon { font-size: 0.65rem; color: var(--accent); text-transform: uppercase; font-weight: 600; }
+.db-appt-info { flex: 1; min-width: 0; }

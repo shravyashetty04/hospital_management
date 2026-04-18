@@ -1,0 +1,317 @@
+/* BookAppointment.css */
+
+/* ── Step bar ───────────────────────────────────────────────── */
+.ba-steps {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--bg-800);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.ba-step {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+.ba-step-dot {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; font-weight: 700;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+.ba-step--done .ba-step-dot {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+.ba-step--active .ba-step-dot {
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-glow);
+}
+.ba-step-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+.ba-step--active .ba-step-label  { color: var(--text-primary); font-weight: 600; }
+.ba-step--done .ba-step-label    { color: var(--text-secondary); }
+.ba-step-line {
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+  margin: 0 0.75rem;
+  transition: background 0.4s ease;
+}
+.ba-step-line--done { background: var(--primary); }
+
+/* ── Panel ──────────────────────────────────────────────────── */
+.ba-panel {
+  animation: slideUp 0.25s ease;
+}
+.ba-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+/* ── Filters ────────────────────────────────────────────────── */
+.ba-filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background: var(--bg-800);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* ── Doctor grid ────────────────────────────────────────────── */
+.ba-doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-height: 480px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.ba-doctor-card {
+  background: var(--bg-800);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.ba-doctor-card:hover {
+  border-color: rgba(99,102,241,0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.ba-doctor-card--selected {
+  border-color: var(--primary);
+  background: rgba(99,102,241,0.06);
+  box-shadow: 0 0 0 1px var(--primary), 0 8px 32px var(--primary-glow);
+}
+.ba-selected-badge {
+  position: absolute;
+  top: 0.6rem; right: 0.6rem;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+}
+.ba-doc-avatar {
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; font-weight: 700; color: #fff;
+  flex-shrink: 0;
+}
+.ba-doc-avatar--sm { width: 40px; height: 40px; font-size: 1rem; }
+.ba-doc-info { min-width: 0; }
+.ba-doc-name  { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.2rem; }
+.ba-doc-spec  { color: var(--accent); font-size: 0.78rem; font-weight: 500; margin-bottom: 0.3rem; }
+.ba-doc-hours { color: var(--text-secondary); font-size: 0.75rem; margin-bottom: 0.15rem; }
+.ba-doc-email { color: var(--text-muted); font-size: 0.72rem; }
+
+/* ── Doctor recap ───────────────────────────────────────────── */
+.ba-doctor-recap {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem 1.25rem;
+  background: rgba(99,102,241,0.08);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+}
+.ba-doctor-recap .ba-doc-name { font-size: 0.95rem; margin: 0; }
+.ba-doctor-recap .ba-doc-spec { margin: 0; }
+.ba-doctor-recap button { margin-left: auto; }
+
+/* ── Datetime grid ──────────────────────────────────────────── */
+.ba-datetime-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.ba-datetime-card { display: flex; flex-direction: column; gap: 0.75rem; }
+.ba-dt-title {
+  font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem;
+}
+.ba-avail-window {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 0.75rem;
+  background: rgba(6,182,212,0.08);
+  border: 1px solid rgba(6,182,212,0.2);
+  border-radius: var(--radius-sm);
+}
+.ba-avail-window strong { color: var(--accent); }
+.ba-date-preview {
+  font-size: 0.8rem;
+  color: var(--success);
+  margin-top: 0.25rem;
+}
+.ba-time-err {
+  font-size: 0.78rem;
+  color: #f87171;
+  margin-top: 0.25rem;
+}
+.ba-time-ok {
+  font-size: 0.78rem;
+  color: var(--success);
+  margin-top: 0.25rem;
+}
+.form-input--error {
+  border-color: var(--danger) !important;
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.15) !important;
+}
+
+/* ── Confirm box ────────────────────────────────────────────── */
+.ba-confirm-box {
+  max-width: 560px;
+  margin: 0 auto;
+}
+.ba-confirm-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+.ba-confirm-hint {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+.ba-confirm-details {
+  background: var(--bg-800);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.ba-confirm-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+.ba-confirm-row:last-child { border-bottom: none; }
+.ba-confirm-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.ba-confirm-value { font-weight: 600; font-size: 0.9rem; }
+.ba-status-pending {
+  background: rgba(245,158,11,0.15);
+  color: #f59e0b;
+  padding: 0.2rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.ba-confirm-notice {
+  background: rgba(99,102,241,0.08);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.ba-confirm-notice strong { color: var(--warning); }
+
+/* ── Success screen ─────────────────────────────────────────── */
+.ba-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  animation: slideUp 0.4s ease;
+}
+.ba-success-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: bounceIn 0.5s ease;
+}
+.ba-success-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--success), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ba-success-sub {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 420px;
+}
+.ba-success-card {
+  background: var(--bg-800);
+  border: 1px solid rgba(16,185,129,0.25);
+  border-radius: var(--radius);
+  width: min(480px, 100%);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(16,185,129,0.1);
+}
+.ba-success-card .ba-confirm-row { padding: 0.9rem 1.25rem; }
+.ba-success-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ── Empty state ────────────────────────────────────────────── */
+.ba-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 3rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+.ba-empty span { font-size: 2.5rem; }
+
+/* ── Animations ─────────────────────────────────────────────── */
+@keyframes bounceIn {
+  0%   { transform: scale(0.5); opacity: 0; }
+  70%  { transform: scale(1.1); }
+  100% { transform: scale(1);   opacity: 1; }
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .ba-filters       { grid-template-columns: 1fr; }
+  .ba-datetime-grid { grid-template-columns: 1fr; }
+  .ba-steps         { padding: 1rem; }
+  .ba-step-label    { display: none; }
+}

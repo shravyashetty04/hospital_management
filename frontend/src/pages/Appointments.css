@@ -1,0 +1,308 @@
+/* Appointments.css */
+
+.appt-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+/* ── Stats strip ────────────────────────────────────────────── */
+.appt-stats-strip {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+.appt-stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--bg-800);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 0.35rem 0.85rem;
+  transition: all var(--transition);
+}
+.appt-stat-pill:hover {
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-1px);
+}
+.appt-stat-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.appt-stat-count {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.appt-stat-label {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Toolbar ────────────────────────────────────────────────── */
+.appt-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* Search */
+.appt-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+.appt-search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+.appt-search {
+  padding-left: 2.4rem !important;
+  padding-right: 2rem !important;
+}
+.appt-search-clear {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+.appt-search-clear:hover { color: var(--text-primary); }
+
+/* Filter pills */
+.appt-filter-pills {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.appt-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--bg-700);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.appt-pill:hover { border-color: var(--primary); color: var(--text-primary); }
+.appt-pill--active {
+  background: rgba(99,102,241,0.12);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.appt-pill-count {
+  background: currentColor;
+  color: #fff;
+  border-radius: 10px;
+  padding: 0 5px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  min-width: 18px;
+  text-align: center;
+  opacity: 0.85;
+}
+
+/* ── Table card ─────────────────────────────────────────────── */
+.appt-table-card { padding: 0; overflow: hidden; }
+.appt-result-count {
+  padding: 0.85rem 1.25rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.appt-result-count strong { color: var(--text-primary); }
+
+/* ── Table ──────────────────────────────────────────────────── */
+.appt-table { width: 100%; border-collapse: collapse; }
+
+.appt-th {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  background: var(--bg-800);
+}
+.appt-th--sort {
+  cursor: pointer;
+  user-select: none;
+  transition: color var(--transition);
+}
+.appt-th--sort:hover { color: var(--text-primary); }
+.appt-th--sort span { display: inline-flex; align-items: center; gap: 0.35rem; }
+
+.sort-icon       { font-size: 0.75rem; color: var(--primary); }
+.sort-icon--idle { color: var(--text-muted); }
+
+/* Rows */
+.appt-row { transition: background var(--transition); }
+.appt-row:hover { background: rgba(255,255,255,0.03); }
+.appt-row td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  vertical-align: middle;
+}
+.appt-row:last-child td { border-bottom: none; }
+
+/* ── Date cell ──────────────────────────────────────────────── */
+.appt-date-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.appt-date-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(99,102,241,0.1);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: 8px;
+  padding: 0.35rem 0.55rem;
+  min-width: 44px;
+  flex-shrink: 0;
+}
+.appt-date-day {
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--primary);
+}
+.appt-date-mon {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+}
+.appt-date-full { font-size: 0.8rem; font-weight: 500; }
+.appt-time      { font-size: 0.72rem; color: var(--text-secondary); }
+
+/* ── Person cell ────────────────────────────────────────────── */
+.appt-person-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.appt-avatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700; color: #fff;
+  flex-shrink: 0;
+}
+.appt-person-name { font-size: 0.875rem; font-weight: 600; }
+.appt-person-sub  { font-size: 0.72rem; color: var(--text-secondary); }
+
+/* ── Spec tag ───────────────────────────────────────────────── */
+.appt-spec-tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: rgba(6,182,212,0.1);
+  color: var(--accent);
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ── Status badge ───────────────────────────────────────────── */
+.appt-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.appt-badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Actions ────────────────────────────────────────────────── */
+.appt-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
+.appt-no-action { color: var(--text-muted); font-size: 0.875rem; }
+.appt-cancel-btn { transition: all var(--transition); }
+.appt-cancel-btn:hover { transform: translateY(-1px); }
+
+/* ── Toast ──────────────────────────────────────────────────── */
+.appt-toast {
+  animation: slideDown 0.3s ease;
+}
+@keyframes slideDown {
+  from { transform: translateY(-10px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+/* ── Cancel dialog ──────────────────────────────────────────── */
+.appt-cancel-modal { text-align: center; }
+.appt-cancel-icon  { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.appt-cancel-body  {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+.appt-cancel-body strong { color: var(--text-primary); }
+.appt-cancel-warn {
+  font-size: 0.78rem;
+  color: #f87171;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Empty state ────────────────────────────────────────────── */
+.appt-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 5rem 1rem;
+  text-align: center;
+}
+.appt-empty-icon  { font-size: 3.5rem; }
+.appt-empty-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.appt-empty-sub {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  max-width: 360px;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .appt-toolbar       { flex-direction: column; align-items: stretch; }
+  .appt-filter-pills  { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; }
+  .appt-stats-strip   { overflow-x: auto; flex-wrap: nowrap; }
+}

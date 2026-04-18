@@ -1,0 +1,46 @@
+# ── Java / Maven ──────────────────────────────────────────────
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+.mvn/wrapper/maven-wrapper.jar
+
+# ── Spring Boot secrets (NEVER commit real passwords) ─────────
+# application.properties is committed but with placeholder password
+# If you use env vars, keep them here:
+.env
+*.env.local
+
+# ── IntelliJ / IDE ───────────────────────────────────────────
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# ── VS Code ──────────────────────────────────────────────────
+.vscode/
+
+# ── Node / React ──────────────────────────────────────────────
+frontend/node_modules/
+frontend/build/
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── OS ────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ── Seed scripts (optional — contains plain-text passwords) ───
+# seed-data.ps1
+
+# ── Misc ──────────────────────────────────────────────────────
+*.tmp
+*.bak
